@@ -364,14 +364,14 @@ export default function App() {
   ];
 
   const education = [
-    { title: "B.Tech in Computer Science & Engineering", subtitle: "Parul University, Vadodara, Gujarat", date: "2023 — Present", details: "Currently in my second year. Focusing on core computer science concepts, data structures, algorithms, and full-stack web development." },
-    { title: "Higher Secondary Education", subtitle: "Science Stream", date: "Graduated 2023", details: "Completed with distinction, focusing on Mathematics and Computer Science." }
+    { title: "B.Tech — Computer Science & Engineering", subtitle: "Parul University, Vadodara, Gujarat", date: "Batch: 2025 – 2029", details: "CGPA: 8.50" }
   ];
 
   const certifications = [
-    { title: "Full Stack Web Development", subtitle: "Udemy / Online Provider", date: "2024" },
-    { title: "Advanced React Patterns", subtitle: "Frontend Masters", date: "2024" },
-    { title: "PostgreSQL for Developers", subtitle: "Coursera", date: "2023" }
+    { title: "JavaScript", subtitle: "Certification", date: "" },
+    { title: "HTML & CSS", subtitle: "Certification", date: "" },
+    { title: "Red Hat", subtitle: "Certification", date: "" },
+    { title: "AWS", subtitle: "Certification", date: "" }
   ];
 
   return (
@@ -415,20 +415,26 @@ export default function App() {
 
       <Navbar />
 
-      {/* ── HERO ── */}
-      <section id="about" style={{ paddingTop: "140px", paddingBottom: "100px", minHeight: "100vh", display: "flex", alignItems: "center" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem", width: "100%", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "40px", alignItems: "center" }} className="hero-grid">
+      {/* ── HERO & ABOUT ── */}
+      <section id="about" style={{ paddingTop: "140px", paddingBottom: "100px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem", width: "100%", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "40px", alignItems: "center", marginBottom: "80px" }} className="hero-grid">
           
           {/* Left Text */}
           <div>
+            <div style={{ marginBottom: "24px" }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontFamily: "'JetBrains Mono', monospace", fontSize: "12px", fontWeight: 700, padding: "8px 16px", border: "2px solid #000", boxShadow: "4px 4px 0 #000" }}>
+                <div style={{ width: "8px", height: "8px", background: "#10b981", borderRadius: "50%" }} />
+                Available · 2nd Year · CS Student
+              </span>
+            </div>
+
             <h1 style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 800, lineHeight: 1.15, letterSpacing: "-0.04em", margin: "0 0 24px" }}>
-              Hello, I am Garv Tanwar<br/>
-              <span style={{ fontWeight: 900 }}>Web</span> <span className="outline-text" style={{ fontWeight: 900, fontFamily: "'Inter', sans-serif" }}>Developer</span><br/>
-              Based In <span style={{ fontWeight: 900 }}>India.</span>
+              Hi, I'm Garv Tanwar.<br/>
+              I build <span className="outline-text" style={{ fontWeight: 900, fontFamily: "'Inter', sans-serif" }}>things</span> for the web.
             </h1>
             
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "16px", color: "#6b7280", lineHeight: 1.6, maxWidth: "540px", margin: "0 0 40px", fontWeight: 500 }}>
-              Aspiring Software Engineer and B.Tech CSE student focused on Full-Stack Development and Backend Architecture. Passionate about building scalable systems, solving real-world problems, and writing clean, optimized code.
+              Software & Web Developer in my second year of B.Tech CS. I write clean code, build real projects, and care about getting the details right — from the first line of HTML to a working deployment.
             </p>
 
             <div className="buttons-row" style={{ display: "flex", flexWrap: "wrap", gap: "16px", marginBottom: "40px" }}>
@@ -461,18 +467,51 @@ export default function App() {
             </TiltCard>
           </div>
         </div>
+
+        {/* About Text Block */}
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "40px 2rem", borderTop: "2px solid #000", width: "100%" }}>
+          <h2 style={{ fontFamily: "'Inter', sans-serif", fontSize: "24px", fontWeight: 900, marginBottom: "24px", textTransform: "uppercase" }}>About Me</h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: "20px", fontFamily: "'Inter', sans-serif", fontSize: "16px", lineHeight: 1.7, color: "#4b5563" }}>
+            <p>I'm Garv Tanwar, a second-year B.Tech Computer Science student with a genuine interest in building software that works — not just demos that look good. I started with the fundamentals and kept going: picking up new tools, shipping real projects, and learning what it actually takes to go from an idea to something live on the internet.</p>
+            <p>I like clean interfaces, well-structured code, and the process of breaking a problem into something solvable. When I'm not coding, I'm usually reading about how things are built or exploring the next thing I want to learn.</p>
+            <p style={{ fontWeight: 600, color: "#000" }}>Currently looking for internships and collaborative projects where I can contribute, learn fast, and build something meaningful.</p>
+          </div>
+        </div>
       </section>
 
       {/* ── SKILLS ── */}
       <section id="skills" style={{ padding: "100px 0", borderTop: "2px solid #000" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
-          <h2 style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, letterSpacing: "-0.04em", margin: "0 0 60px", textTransform: "uppercase" }}>
-            My <span className="outline-text">Skills</span>
-          </h2>
           
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: "24px" }}>
-            {skills.map(s => <SkillCard key={s.label} {...s} />)}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "60px", alignItems: "start" }} className="edu-grid">
+            {/* Stats Column */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+              <div style={{ padding: "32px", border: "2px solid #000", boxShadow: "6px 6px 0 #000", background: "#fff" }}>
+                <h3 style={{ fontSize: "3rem", fontWeight: 900, fontFamily: "'Inter', sans-serif", margin: "0 0 8px", lineHeight: 1 }}>5+</h3>
+                <p style={{ fontSize: "16px", fontWeight: 700, color: "#6b7280", margin: 0, textTransform: "uppercase" }}>Technologies</p>
+              </div>
+              <div style={{ padding: "32px", border: "2px solid #000", boxShadow: "6px 6px 0 #000", background: "#fff" }}>
+                <h3 style={{ fontSize: "2.5rem", fontWeight: 900, fontFamily: "'Inter', sans-serif", margin: "0 0 8px", lineHeight: 1 }}>2nd</h3>
+                <p style={{ fontSize: "16px", fontWeight: 700, color: "#6b7280", margin: 0, textTransform: "uppercase" }}>Year, B.Tech CS</p>
+              </div>
+            </div>
+
+            {/* Categories Column */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+              {[
+                { title: "Languages", items: "HTML, CSS, JavaScript, C, C++, SQL" },
+                { title: "Frontend", items: "Responsive Design" },
+                { title: "Backend & DB", items: "Node.js, SQL, PostgreSQL" },
+                { title: "Tools & Infra", items: "Git, GitHub, VS Code, Vercel" }
+              ].map(cat => (
+                <div key={cat.title} style={{ padding: "24px", border: "2px solid #000", background: "#f9fafb" }}>
+                  <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: "18px", fontWeight: 800, margin: "0 0 12px", textTransform: "uppercase" }}>{cat.title}</h4>
+                  <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "15px", margin: 0, color: "#4b5563", lineHeight: 1.6 }}>{cat.items}</p>
+                </div>
+              ))}
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -520,16 +559,35 @@ export default function App() {
 
       {/* ── CONTACT ── */}
       <section id="contact" style={{ padding: "120px 0", borderTop: "2px solid #000", background: "#f9fafb" }}>
-        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 2rem", textAlign: "center" }}>
-          <h2 style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 900, letterSpacing: "-0.04em", margin: "0 0 24px" }}>
-            Let's <span className="outline-text">Connect.</span>
-          </h2>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "18px", color: "#4b5563", lineHeight: 1.6, marginBottom: "48px", fontWeight: 500 }}>
-            Currently open to new opportunities, freelance projects, or just a chat. Feel free to reach out.
-          </p>
-          <SharpBtn variant="primary" href="mailto:garvt957@gmail.com" style={{ fontSize: "18px", padding: "16px 40px" }}>
-            Say Hello →
-          </SharpBtn>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 2rem" }}>
+          
+          <div style={{ textAlign: "center", marginBottom: "48px" }}>
+            <h2 style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 900, letterSpacing: "-0.04em", margin: "0 0 24px" }}>
+              Let's <span className="outline-text">build</span> something together.
+            </h2>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "16px", color: "#4b5563", lineHeight: 1.6, fontWeight: 500, maxWidth: "600px", margin: "0 auto" }}>
+              Open to internships, freelance work, and collaborative projects. If you have an idea or an opportunity, I'd love to hear about it.
+            </p>
+          </div>
+
+          <form style={{ display: "flex", flexDirection: "column", gap: "20px", background: "#fff", padding: "40px", border: "2px solid #000", boxShadow: "8px 8px 0 #000" }} onSubmit={e => e.preventDefault()}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              <label style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "14px", fontWeight: 700 }}>Name</label>
+              <input type="text" placeholder="Your Name" style={{ padding: "16px", border: "2px solid #000", fontFamily: "'Inter', sans-serif", fontSize: "16px", outline: "none", borderRadius: 0 }} />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              <label style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "14px", fontWeight: 700 }}>Email</label>
+              <input type="email" placeholder="your@email.com" style={{ padding: "16px", border: "2px solid #000", fontFamily: "'Inter', sans-serif", fontSize: "16px", outline: "none", borderRadius: 0 }} />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              <label style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "14px", fontWeight: 700 }}>Details</label>
+              <textarea placeholder="Tell me about your project..." rows={5} style={{ padding: "16px", border: "2px solid #000", fontFamily: "'Inter', sans-serif", fontSize: "16px", outline: "none", resize: "vertical", borderRadius: 0 }} />
+            </div>
+            <SharpBtn variant="primary" style={{ marginTop: "16px", fontSize: "16px", padding: "16px" }}>
+              Send Message
+            </SharpBtn>
+          </form>
+
         </div>
       </section>
 
