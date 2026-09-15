@@ -218,50 +218,52 @@ function Navbar() {
   };
 
   return (
-    <nav style={{
-      position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-      background: "rgba(255,255,255,0.95)",
-      backdropFilter: "blur(10px)",
-      borderBottom: "2px solid #000",
-      height: "72px"
-    }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem", height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        
-        {/* Logo - Signature style */}
-        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          style={{ background: "none", border: "none", display: "flex", alignItems: "center", gap: "8px", cursor: "none" }}>
-          <div style={{ width: "8px", height: "8px", background: "#000" }} />
-          <span style={{ fontFamily: "'Caveat', cursive", fontSize: "28px", fontWeight: 700, color: "#000", letterSpacing: "1px", transform: "rotate(-2deg)" }}>
-            Garv Tanwar
-          </span>
-        </button>
+    <>
+      <nav style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+        background: "rgba(255,255,255,0.95)",
+        backdropFilter: "blur(10px)",
+        borderBottom: "2px solid #000",
+        height: "72px"
+      }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem", height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          
+          {/* Logo - Signature style */}
+          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            style={{ background: "none", border: "none", display: "flex", alignItems: "center", gap: "8px", cursor: "none" }}>
+            <div style={{ width: "8px", height: "8px", background: "#000" }} />
+            <span style={{ fontFamily: "'Caveat', cursive", fontSize: "28px", fontWeight: 700, color: "#000", letterSpacing: "1px", transform: "rotate(-2deg)" }}>
+              Garv Tanwar
+            </span>
+          </button>
 
-        {/* Desktop links */}
-        <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "32px" }}>
-          {links.map(l => (
-            <button key={l} onClick={() => scrollTo(l)} style={{
-              background: "none", border: "none",
-              fontFamily: "'Inter', sans-serif", fontSize: "15px", fontWeight: 700,
-              color: "#000", transition: "color 0.2s", cursor: "none"
-            }}>
-              {l}
-            </button>
-          ))}
+          {/* Desktop links */}
+          <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+            {links.map(l => (
+              <button key={l} onClick={() => scrollTo(l)} style={{
+                background: "none", border: "none",
+                fontFamily: "'Inter', sans-serif", fontSize: "15px", fontWeight: 700,
+                color: "#000", transition: "color 0.2s", cursor: "none"
+              }}>
+                {l}
+              </button>
+            ))}
+          </div>
+
+          <div className="desktop-nav">
+            <SharpBtn href="/resume.pdf" variant="outline" style={{ padding: "8px 20px" }}>
+              Resume <span style={{ fontSize: "16px" }}>↓</span>
+            </SharpBtn>
+          </div>
+
+          {/* Mobile menu (simplified) */}
+          <button className="mobile-nav-btn" onClick={() => setMenuOpen(!menuOpen)} style={{ display: "none", background: "none", border: "2px solid #000", padding: "6px", boxShadow: "2px 2px 0 #000", cursor: "none", zIndex: 101 }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="square">
+              {menuOpen ? <path d="M18 6L6 18M6 6l12 12"/> : <path d="M3 12h18M3 6h18M3 18h18"/>}
+            </svg>
+          </button>
         </div>
-
-        <div className="desktop-nav">
-          <SharpBtn href="/resume.pdf" variant="outline" style={{ padding: "8px 20px" }}>
-            Resume <span style={{ fontSize: "16px" }}>↓</span>
-          </SharpBtn>
-        </div>
-
-        {/* Mobile menu (simplified) */}
-        <button className="mobile-nav-btn" onClick={() => setMenuOpen(!menuOpen)} style={{ display: "none", background: "none", border: "2px solid #000", padding: "6px", boxShadow: "2px 2px 0 #000", cursor: "none", zIndex: 101 }}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="square">
-            {menuOpen ? <path d="M18 6L6 18M6 6l12 12"/> : <path d="M3 12h18M3 6h18M3 18h18"/>}
-          </svg>
-        </button>
-      </div>
+      </nav>
 
       {/* Mobile Menu Overlay */}
       <div style={{
@@ -284,7 +286,7 @@ function Navbar() {
           Resume ↓
         </SharpBtn>
       </div>
-    </nav>
+    </>
   );
 }
 
