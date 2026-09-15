@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@800&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="32" height="32" rx="7" fill="#4F46E5"/>
+  <!-- GT letters -->
+  <text
+    x="4"
+    y="23"
+    font-family="'Space Grotesk', 'Arial Black', sans-serif"
+    font-weight="800"
+    font-size="17"
+    fill="#FFFFFF"
+    letter-spacing="-0.5"
+  >GT</text>
+  <!-- Cyan accent dot -->
+  <circle cx="27" cy="22" r="2.5" fill="#06B6D4"/>
+</svg>
