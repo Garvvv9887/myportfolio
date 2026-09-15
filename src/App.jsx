@@ -209,10 +209,12 @@ function SharpBtn({ children, href, onClick, variant = "primary", style, downloa
 
 // ─── NAV ─────────────────────────────────────────────────────────────────────
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const links = ["About", "Skills", "Projects", "Education", "Contact"];
 
   const scrollTo = (id) => {
     document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
   };
 
   return (
@@ -254,9 +256,33 @@ function Navbar() {
         </div>
 
         {/* Mobile menu (simplified) */}
-        <button className="mobile-nav-btn" style={{ display: "none", background: "none", border: "2px solid #000", padding: "6px", boxShadow: "2px 2px 0 #000", cursor: "none" }}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="square"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        <button className="mobile-nav-btn" onClick={() => setMenuOpen(!menuOpen)} style={{ display: "none", background: "none", border: "2px solid #000", padding: "6px", boxShadow: "2px 2px 0 #000", cursor: "none", zIndex: 101 }}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="square">
+            {menuOpen ? <path d="M18 6L6 18M6 6l12 12"/> : <path d="M3 12h18M3 6h18M3 18h18"/>}
+          </svg>
         </button>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div style={{
+        position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+        background: "#fff", zIndex: 99,
+        display: menuOpen ? "flex" : "none",
+        flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "32px",
+        padding: "2rem"
+      }}>
+        {links.map(l => (
+          <button key={l} onClick={() => scrollTo(l)} style={{
+            background: "none", border: "none",
+            fontFamily: "'Inter', sans-serif", fontSize: "24px", fontWeight: 800,
+            color: "#000", textTransform: "uppercase", cursor: "none"
+          }}>
+            {l}
+          </button>
+        ))}
+        <SharpBtn href="/resume.pdf" variant="outline" style={{ marginTop: "16px" }}>
+          Resume ↓
+        </SharpBtn>
       </div>
     </nav>
   );
